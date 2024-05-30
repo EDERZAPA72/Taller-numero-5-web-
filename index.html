@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    
+    <script src="js/utilidades.js"></script>
+    <script src="js/gestionevento.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script>
+        function seleccionVista() {
+            var seleccion = document.getElementById("fecha").value;
+            if (seleccion === "dia") {
+                eliminarDiv()
+                crearDias()
+            } else if (seleccion === "mes") {
+                eliminarDiv()
+                seleccionMes()
+            } else if (seleccion === "anio") {
+                eliminarDiv()
+                crearAnio()
+            } else {
+                eliminarDiv()
+                seleccionMes()
+            }
+        }
+
+        function eliminarDiv() {
+            var divPrincipal = document.getElementById("divPrincipal")
+            var divExistente = document.getElementById("nuevoDivId");
+            if (divExistente) {
+                divPrincipal.removeChild(divExistente);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+        
+
+        var eventos = JSON.parse(localStorage.getItem("eventos") || "[]")
+        var fechasHoras = []
+
+        for (let i = 0; i < eventos.length; i++) {
+            fechasHoras.push(eventos[i].fechaHora)
+        }
+        
+    </script>
+
+    <div class="gridContenedor" id="divPrincipal">
+
+        <div class="divMenu">
+            
+            <h2>Calendario de eventos</h2>
+            <h2 class="mesSeleccionado">Meses</h2>
+            <div class="divSeleccion">
+                <label for="fecha">Seleccionar Vista:</label>
+                <select id="fecha" name="fecha" onchange="seleccionVista()">
+                    <option value="mes">Mes</option>
+                    <option value="dia">Dia</option>
+                    <option value="anio">Año</option>
+                </select>
+            </div>
+
+            <div class="divSeleccion">
+                <label for="mes">Seleccionar Mes:</label>
+                <select id="mes" name="mes" onchange="eliminarDiv(), crearMes()">
+                    <option value="enero">Enero</option>
+                    <option value="febrero">Febrero</option>
+                    <option value="marzo">Marzo</option>
+                    <option value="abril">Abril</option>
+                    <option value="mayo">Mayo</option>
+                    <option value="junio">Junio</option>
+                    <option value="julio">Julio</option>
+                    <option value="agosto">Agosto</option>
+                    <option value="septiembre">Septiembre</option>
+                    <option value="octubre">Octubre</option>
+                    <option value="noviembre">Noviembre</option>
+                    <option value="diciembre">Diciembre</option>
+
+                </select>
+            </div>
+            <img src="recursos/imagenes/calendario.jpg" alt="">
+
+        </div>
+
+        <div class="divEvento">
+            <button onclick="window.location.href='html/gestioneventos.html'">Crear nuevo evento</button>
+            <button onclick="listarEventos()">Ver eventos </button>
+            <div class="divListaEvento">
+                <ol id="listarEventos"></ol>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Evento</title>
+    <script src="../js/gestionevento.js"></script>
+    <script src="../js/evento.js"></script>
+    <script src="../js/utilidades.js"></script>
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <script>
+        function adicionarNombreATabla() {
+
+            var nombreTematico = document.getElementById('nombreTematico')
+            if (nombreTematico.value.length > 0) {
+                var tablaNombresTematicos = document.getElementById('tablaParticipantes')
+                var fila = tablaNombresTematicos.insertRow(-1)
+                var columnaUno = fila.insertCell(0)
+                var textoColumna = document.createTextNode(nombreTematico.value)
+                columnaUno.appendChild(textoColumna)
+
+                nombreTematico.value = ''
+
+                var botonEliminar = document.createElement('button')
+                botonEliminar.textContent = 'Eliminar'
+                botonEliminar.addEventListener('click', function () {
+                    fila.parentNode.removeChild(fila)
+                })
+
+                var columnaDos = fila.insertCell(1)
+                columnaDos.appendChild(botonEliminar)
+
+            } else {
+            }
+            nombreTematico.focus()
+        }
+    </script>
+</head>
+
+<body class="cuerpo2">
+    <div>
+
+
+        <h1 class="tituloFormulario">Eventos</h1>
+        <div class="flexPrincipal">
+            <div class="divFlexFormulario">
+                <label for="fechaYHora">Fecha y hora</label>
+                <input name="fechaYHora" type="datetime-local" id="fechaHora">
+
+                <label for="descripcion">Descripcion</label>
+                <textarea name="descripcion" id="descripcion"></textarea>
+
+                <label for="">Participante</label>
+                <input id="nombreTematico" type="text">
+                <button onclick="adicionarNombreATabla()">Agregar participante </button>
+                <table id="tablaParticipantes">
+                    <caption>Participantes agregados</caption>
+                    <tr>
+                        <td>Participante</td>
+                        <td>Accion</td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="divFlexBoton">
+                <button onclick="guardarEvento()">Guardar evento</button>
+                <button onclick="actualizarEvento()">actualizar evento</button>
+                <button onclick="eliminarEvento()">eliminar evento</button>
+                <button onclick="consultarEvento()">consultar evento por fecha</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+body{
+    background-color: black;
+}
+.gridContenedor {
+    display: grid;
+    grid-template-columns: 7% 60%;
+    grid-template-rows: 100px 600px;
+    margin-left: 250px;
+}
+
+.divMenu {
+    grid-column: span 2;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    gap: 55px;
+    background-color: black;
+    color: aliceblue;
+}
+
+.divMenu img {
+    width: 60px;
+    height: 60px;
+}
+
+
+.divSeleccion {
+    margin-right: 30px;
+}
+
+.divSeleccion select {
+    height: 40px;
+    width: 100px;
+}
+
+.divEvento {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+        border-top: none;
+    background-color: black
+}
+
+.divEvento button {
+
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+}
+
+.divListaEvento ol {
+    list-style: none;
+    padding-left: 0;
+    color: aliceblue;
+
+    li {
+        margin-top: 15px;
+    }
+}
+
+.divMeses {
+    text-align: center;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.divMeses ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+    margin: 0;
+    
+}
+
+.divMeses li {
+    height: 90px;
+    border: 1px solid black;
+}
+
+.primerDiaMes {
+    grid-column-start: 2;
+    
+}
+
+.divDias {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+}
+
+.divDias ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    margin: 0;
+}
+
+.divDias li {
+    height: 90px;
+}
+
+.tituloFormulario {
+    margin: 80px;
+    color: aliceblue;
+}
+
+.flexPrincipal {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-right: 300px;
+    background-color: black;
+}
+
+.divFlexFormulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    color: aliceblue;
+
+    button {
+        border-color: rgb(187, 208, 226);
+        height: 30px;
+    }
+}
+
+.divFlexBoton {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 10px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.divFlexBoton button {
+    background-color: white;
+    border-color: rgb(187, 208, 226);
+}
+
+.cuerpo2{
+    background-color: black;
+}
+
+.divAnio {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.divAnio div {
+    height: 100px;
+}
